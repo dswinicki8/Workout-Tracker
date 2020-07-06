@@ -25,7 +25,7 @@ module.exports = function (app) {
   });
 //PUT Route//
   app.put("/api/workouts/:id", ({ body, params }, res) => {
-    Workout.findAndModify(params.id,
+    Workout.findByIdAndUpdate(params.id,
       { $push: { exercises: body } },
       { new: true, runValidators: true }
     )
