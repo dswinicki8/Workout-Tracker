@@ -13,6 +13,17 @@ module.exports = function (app) {
       });
   });
 
+  app.get("/api/workouts/range", (req, res) => {
+    Workout.find({})
+      .then(data => {
+        res.json(data)
+      })
+      .catch(err => {
+        res.json(err)
+      });
+  });
+
+
   //POST Route//
   app.post("/api/workouts", (req, res) => {
     Workout.create({})
